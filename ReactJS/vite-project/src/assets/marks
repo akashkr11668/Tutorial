@@ -1,0 +1,143 @@
+// import { useState } from "react";
+
+// const TakeInput = () => {
+//   const [math, setMath] = useState("");
+//   const [science, setScience] = useState("");
+//   const [computer, setComputer] = useState("");
+//   const [english, setEnglish] = useState("");
+//   const [name, setName] = useState("");
+//   const [marks, setMarks] = useState(false);
+//   const grade = (sub) => {
+//     //console.log(sub);
+//     {
+//       if (sub > 80) return <h2>"A"</h2>;
+//     }
+//     {
+//       if (sub > 60) return <h2>"B"</h2>;
+//     }
+//     {
+//       if (sub > 40) return <h2>"C"</h2>;
+//     }
+//     {
+//       if (sub > 30) return <h2>"D"</h2>;
+//     }
+//     return <h2>"F"</h2>;
+//   };
+//   //data = [data];
+//   const showMarks = () => {
+//     let total = Number(math);
+//     console.log(typeof math);
+//     console.log(total);
+//     total = total + Number(english);
+//     console.log(total);
+//     total = total + Number(science);
+//     console.log(total);
+//     total = total + Number(computer);
+//     console.log(total);
+//     total = total / 4;
+//     console.log(math, english, science, computer, total);
+//     return (
+//       <>
+//         <div>Grades in respective subjects are as follows-</div>
+//         <div>Maths:{grade(math)}</div>
+//         <div>Science:{grade(science)}</div>
+//         <div>English:{grade(english)}</div>
+//         <div>Compuer:{grade(computer)}</div>
+//         <div>
+//           Overall grade : {total}
+//           {grade(total)}
+//         </div>
+//       </>
+//     );
+//   };
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     setMarks(true);
+//     console.log(name, math, science, computer, english);
+//     console.log(grade(math));
+//   };
+
+//   console.log(typeof data);
+//   return (
+//     <form className="form" onSubmit={handleSubmit}>
+//       <h4>Enter your marks in each Subject</h4>
+//       <div className="form-row">
+//         <label htmlFor="name" className="form-label">
+//           name
+//         </label>
+//         <input
+//           type="text"
+//           id="name"
+//           className="form-input"
+//           onChange={(e) => {
+//             setName(e.target.value);
+//           }}
+//         />
+//       </div>
+
+//       <div className="form-row">
+//         <label htmlFor="maths" className="form-label">
+//           Maths
+//         </label>
+//         <input
+//           type="number"
+//           id="math"
+//           className="form-input"
+//           value={math}
+//           onChange={(e) => {
+//             setMath(e.target.value);
+//           }}
+//         />
+//       </div>
+//       <div className="form-row">
+//         <label htmlFor="science" className="form-label">
+//           Science
+//         </label>
+//         <input
+//           type="number"
+//           id="science"
+//           className="form-input"
+//           value={science}
+//           onChange={(e) => {
+//             setScience(e.target.value);
+//           }}
+//         />
+//       </div>
+
+//       <div className="form-row">
+//         <label htmlFor="computer" className="form-label">
+//           Computer Science
+//         </label>
+//         <input
+//           type="number"
+//           id="computer"
+//           className="form-input"
+//           value={computer}
+//           onChange={(e) => {
+//             setComputer(e.target.value);
+//           }}
+//         />
+//       </div>
+//       <div className="form-row">
+//         <label htmlFor="number" className="form-label">
+//           English
+//         </label>
+//         <input
+//           type="text"
+//           id="english"
+//           className="form-input"
+//           value={english}
+//           onChange={(e) => {
+//             setEnglish(e.target.value);
+//           }}
+//         />
+//       </div>
+
+//       <button type="submit" className="btn btn-block">
+//         submit bitch
+//       </button>
+//       {marks && showMarks()}
+//     </form>
+//   );
+// };
+// export default TakeInput;

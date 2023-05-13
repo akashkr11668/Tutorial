@@ -1,0 +1,51 @@
+<!-- Insert two text boxes - First name and Last name. Insert three buttons and name them as "set cookie", "get cookie" and "delete cookie".
+ When the user inputs the values in the two given text boxes, with the click on "set cookie" button, 
+ the user should be able to set the cookie. With the click of "get cookie" button, the user should be able to fetch the cookie which has been set.
+  With the click of "delete cookie" button, the user must be able to delete the cookie -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cookie Example</title>
+</head>
+<body>
+  <label for="firstName">First Name:</label>
+  <input type="text" id="firstName" name="firstName"><br><br>
+  <label for="lastName">Last Name:</label>
+  <input type="text" id="lastName" name="lastName"><br><br>
+  <button onclick="setCookie()">Set Cookie</button>
+  <button onclick="getCookie()">Get Cookie</button>
+  <button onclick="deleteCookie()">Delete Cookie</button>
+  <script>
+    function setCookie() {
+      const firstName = document.getElementById('firstName').value;
+      const lastName = document.getElementById('lastName').value;
+      const fullName = `${firstName} ${lastName}`;
+      document.cookie = `fullName=${fullName}`;
+      alert(`Cookie set: fullName=${fullName}`);
+    }
+
+    function getCookie() {
+      const cookies = document.cookie.split(';');
+      let fullName = '';
+      cookies.forEach((cookie) => {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'fullName') {
+          fullName = value;
+        }
+      });
+      if (fullName) {
+        alert(`Cookie found: fullName=${fullName}`);
+      } else {
+        alert('Cookie not found');
+      }
+    }
+
+    function deleteCookie() {
+      document.cookie = 'fullName=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+      alert('Cookie deleted');
+    }
+  </script>
+</body>
+</html>

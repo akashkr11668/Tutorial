@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Client</title>
+  </head>
+  <body>
+    <div id="oddCount"></div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const socket = io();
+      socket.on('oddVisitorCount', (count) => {
+        console.log(`Odd visitor count: ${count}`);
+        document.getElementById('oddCount').innerText = `Odd visitor count: ${count}`;
+      });
+    </script>
+  </body>
+</html>

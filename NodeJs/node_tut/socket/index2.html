@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Socket.IO Example</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.js"></script>
+  <script>
+    const socket = io();
+
+    socket.on('even-numbers', (count) => {
+      const p = document.createElement('p');
+      p.innerText = count;
+      document.body.appendChild(p);
+    });
+  </script>
+</head>
+<body>
+  <h1>Even Numbers:</h1>
+</body>
+</html>

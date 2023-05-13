@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Socket.io Chat Room</title>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+
+</head>
+<body>
+  <h1>Socket.io Chat Room</h1>
+
+  <ul id="messages"></ul>
+
+  <form action="">
+    <input id="message" autocomplete="off" />
+    <button>Send</button>
+  </form>
+
+  <script>
+    $(function () {
+      var socket = io();
+      var username = prompt('Enter your username:');
+
+      $('form').submit(function(e) {
+        e.preventDefault(); // prevents page reloading
+        socket.emit('new message', $('#message').val());
+        $('#message').val('');
+        return false;
+      });
+
+      socket.emit('add user', username);
+
+      socket.on('login', function (data) {
+        $('#messages').append($('<li>').text('Welcome to the chat room! There are ' + data.numUsers + ' users online.'));
+      });
+
+      socket.on('user joined', function (data) {
+        $('#messages').append($('<li>').text(data.username + ' has joined the chat. There are ' + data.numUsers + ' users online.'));
+      });
+
+      socket.on('new message', function (data) {
+        $('#messages').append($('<li>').text(data.username + ': ' + data.message));
+      });
+
+      socket.on('user left', function (data) {
+        $('#messages').append($('<li>').text(data.username + ' has left the chat. There are ' + data.numUsers + ' users online.'));
+      });
+    });
+  </script>
+</body>
+</html>
